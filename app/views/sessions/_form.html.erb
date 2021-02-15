@@ -1,0 +1,5 @@
+<%= form_with(model: @user, local: true, url: sessions_path) do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.submit %>
+<% end %>

@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if @user
       session.clear
       session[:user_id] = @user.id
+      session[:username] = @user.name
       redirect_to @user, notice: "You have successfully logged in."
     else
       flash.now.alert = "Your login is incorrect."

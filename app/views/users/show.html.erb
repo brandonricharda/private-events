@@ -6,3 +6,13 @@
   <strong>Username:</strong>
   <%= @user.name %>
 </p>
+
+<h2><%= @user.name %>'s <%= @user.created_events.count %> Events:</h2>
+
+<% @user.created_events.each do |event| %>
+  <td>
+    <p>
+      <%= event.name %>
+    </p>
+  </td>
+<% end %>

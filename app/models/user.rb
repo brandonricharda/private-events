@@ -1,4 +1,3 @@
 class User < ApplicationRecord
-    has_many :event_creations, foreign_key: :event_creator_id
-    has_many :created_events, through: :event_creations
+    has_many :created_events, foreign_key: "creator_id", class_name: "Event"
 end

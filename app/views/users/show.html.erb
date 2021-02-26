@@ -16,3 +16,13 @@
     </p>
   </td>
 <% end %>
+
+<h2> Events <%= @user.name %> is attending</h2>
+
+<% @user.attended_events.each do |event| %>
+  <td>
+    <p>
+      <%= event.name %>
+    </p>
+  </td>
+<% end %>

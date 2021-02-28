@@ -1,9 +1,25 @@
 <h1>Events</h1>
 
+<h2>Upcoming events</h2>
+
 <% @events.each do |event| %>
-  <td>
-    <p>
-      <%= event.name %>
-    </p>
-  </td>
+  <% if event.upcoming %>
+    <td>
+      <p>
+        <%= event.name %>
+      </p>
+    </td>
+  <% end %>
+<% end %>
+
+<h2>Past events</h2>
+
+<% @events.each do |event| %>
+  <% if event.past %>
+    <td>
+      <p>
+        <%= event.name %>
+      </p>
+    </td>
+  <% end %>
 <% end %>

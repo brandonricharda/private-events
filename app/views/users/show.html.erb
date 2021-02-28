@@ -7,7 +7,7 @@
   <%= @user.name %>
 </p>
 
-<h2><%= @user.name %>'s <%= @user.created_events.count %> Events:</h2>
+<h2><%= @user.name %>'s <%= @user.created_events.count %> events:</h2>
 
 <% @user.created_events.each do |event| %>
   <td>
@@ -20,9 +20,25 @@
 <h2> Events <%= @user.name %> is attending</h2>
 
 <% @user.attended_events.each do |event| %>
-  <td>
-    <p>
-      <%= event.name %>
-    </p>
-  </td>
+  <% if event.date > Date.yesterday %>
+    <td>
+      <p>
+        <%= event.name %>
+        <%= event.date %>
+      </p>
+    </td>
+  <% end %>
+<% end %>
+
+<h2> Events <%= @user.name %> previously attended</h2>
+
+<% @user.attended_events.each do |event| %>
+  <% if event.date < Date.today %>
+    <td>
+      <p>
+        <%= event.name %>
+        <%= event.date %>
+      </p>
+    </td>
+  <% end %>
 <% end %>

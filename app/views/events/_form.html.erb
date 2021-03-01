@@ -1,5 +1,7 @@
-<%= form_with(model: @event, local: true, url: sessions_path) do |form| %>
+<%= form_with(model: @event, local: true, url: events_path) do |form| %>
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name %></br></br>
+    <%= form.label :date %>
+    <%= form.date_field :date %></br></br>
     <%= form.submit %>
 <% end %>

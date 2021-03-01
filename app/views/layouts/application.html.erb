@@ -6,12 +6,20 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= link_to "Events", events_path %>
-    <%= link_to "Users", users_path %>
+
+    <% if session[:username] %>
+      <%= session[:username] %></br></br>
+      <%= link_to "Create Event", new_event_path %>
+    <% else %>
+      <%= link_to "Sign In", new_session_path %>
+    <% end %>
+
+    <%= link_to "All Events", events_path %>
+    <%= link_to "All Users", users_path %>
+
   </head>
 
   <body>
-    <%= session[:username] %>
     <%= yield %>
   </body>
 </html>

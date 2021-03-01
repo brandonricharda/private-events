@@ -6,14 +6,14 @@
   <strong>Name:</strong>
   <%= @event.name %></br></br>
   <strong>Creator:</strong>
-  <%= @event.creator.name %></br></br>
+  <%= link_to @event.creator.name, user_path(@event.creator) %></br></br>
   <strong>Date:</strong>
   <%= @event.date %></br></br>
   <strong>Attendees:</strong>
   <% @event.attendees.each do |attendee| %>
     <td>
       <p>
-        <%= attendee.name %>
+        <%= link_to attendee.name, user_path(attendee) %>
       </p>
     </td>
   <% end %>

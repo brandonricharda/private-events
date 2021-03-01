@@ -1,0 +1,32 @@
+<h1>Users</h1>
+
+<p id="notice"><%= notice %></p>
+
+<% @users.each do |user| %>
+    <td>
+        <h2><%= link_to user.name, user_path(user) %></h2>
+        <h3>Created Events</h3>
+        <% if user.created_events.count > 0 %>
+            <% user.created_events.each do |event| %>
+                <p>
+                    <%= link_to event.name, event_path(event) %>
+                    <%= event.date %>
+                </p>
+            <% end %>
+        <% else %>
+            <p>No events to show.</p>
+        <% end %>
+
+        <h3>Attending Events</h3>
+        <% if user.attended_events.count > 0 %>
+            <% user.attended_events.each do |event| %>
+                <p>
+                    <%= link_to event.name, event_path(event) %>
+                    <%= event.date %>
+                </p>
+            <% end %>
+        <% else %>
+            <p>No events to show.</p>
+        <% end %>
+    </td>
+<% end %>

@@ -2,24 +2,20 @@
 
 <h2>Upcoming events</h2>
 
-<% @events.each do |event| %>
-  <% if event.upcoming %>
-    <td>
-      <p>
-        <%= event.name %>
-      </p>
-    </td>
-  <% end %>
+<% Event.upcoming.each do |event| %>
+  <td>
+    <p>
+      <%= link_to event.name, event_path(event) %>
+    </p>
+  </td>
 <% end %>
 
 <h2>Past events</h2>
 
-<% @events.each do |event| %>
-  <% if event.past %>
-    <td>
-      <p>
-        <%= event.name %>
-      </p>
-    </td>
-  <% end %>
+<% Event.past.each do |event| %>
+  <td>
+    <p>
+      <%= link_to event.name, event_path(event) %>
+    </p>
+  </td>
 <% end %>

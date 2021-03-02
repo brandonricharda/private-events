@@ -17,5 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
+    redirect_to events_path, notice: "You have successfully signed out."
   end
 end

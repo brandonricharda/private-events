@@ -2,6 +2,12 @@
 
 <p id="notice"><%= notice %></p>
 
+<% if current_user && session[:username] = current_user.name %>
+  <p>This is your event. You may invite guests.</p>
+<% else %>
+  <p>This is not your event. You can only view it. If you think it is your event, log into the correct account.</p>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @event.name %></br></br>

@@ -1,7 +1,5 @@
 class EventsController < ApplicationController
 
-    #For this to work, I need to convert User into Devise model
-
     def new
         @event = current_user.created_events.build
     end

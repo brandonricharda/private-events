@@ -42,3 +42,18 @@
     </td>
   <% end %>
 <% end %>
+
+<% if session[:username] && session[:username] != @user.name %>
+  <h2> Invite <%= @user.name %> to one of your events</h2>
+  <% current_user.created_events.each do |event| %>
+    <td>
+      <p>
+        <%= event.name %>
+      </p>
+    </td>
+  <% end %>
+<% elsif !session[:username] %>
+    <h2>Login to invite this user to your event.</h2>
+<% else %>
+    <h2>This is your page.</h2>
+<% end %>

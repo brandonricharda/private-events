@@ -2,16 +2,6 @@
 
 <p id="notice"><%= notice %></p>
 
-<% if current_user && session[:username] = current_user.name %>
-  <p>This is your event. You may invite guests. Enter the guest you want to invite below.</p>
-  <%# Replace line below with code. %>
-  <% User.all.each do |user| %>
-    <%= user.name %></br></br>
-  <% end %>
-<% else %>
-  <p>This is not your event. You can only view it. If you think it is your event, log into the correct account.</p>
-<% end %>
-
 <p>
   <strong>Name:</strong>
   <%= @event.name %></br></br>

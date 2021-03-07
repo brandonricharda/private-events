@@ -22,9 +22,11 @@
 <% if session[:username] = @event.creator.name %>
   <h2>Invite users to your event</h2>
   <% User.all.each do |user| %>
-    <%= next if user.name == session[:username] %>
-    <p>
-      <%= button_to user.name %>
-    </p>
+    <%= next if user.name == session[:username] || user.attended_events.include?(@event) %>
+    <%= form_with(model: @attendances, local: true, url: attendances_path) do |form| %>
+      <%= form.hidden_field :user_id, :value => user.id %>
+      <%= form.hidden_field :event_id, :value => @event.id %>
+      <%= form.submit user.name %>
+  <% end %>
   <% end %>
 <% end %>

@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_attendance(event)
+    @user.attended_events << event
+  end
+
   def show
     @user = User.find(params[:id])
   end

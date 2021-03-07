@@ -1,10 +1,7 @@
 <h1>Invitation</h1>
 
-<p id="notice"><%= notice %></p>
+<h2>Event:</h2>
+<%= Event.find(@attendance.event_id).name %>
 
-<p>
-    <h2>Guest:</h2>
-    <%= @user.find(params[:user_id]).name %>
-    <h2>Party:</h2>
-    <%= @event.find(params[:event_d]).name %>
-</p>
+<h2>Guest:</h2>
+<%= User.find(@attendance.user_id).name %>

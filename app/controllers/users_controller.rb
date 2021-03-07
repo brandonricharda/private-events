@@ -11,18 +11,13 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        flash[:notice] = "User was successfully created."
+        redirect_to user_path(user)
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def add_invitation
-    @event = Event.find(params[:id])
-    @user.attended_events << @event
   end
 
   def show

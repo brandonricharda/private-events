@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+    before_action :require_login, only: [:new, :create]
     def new
         @event = current_user.created_events.build
     end
@@ -29,5 +29,12 @@ class EventsController < ApplicationController
 
     def event_params
         params.require(:event).permit(:date, :name)
+    end
+
+    def require_login
+        unless session[:username]
+            flash[:error] = "You must be logged in to create a new event."
+            redirect_to login_path
+        end
     end
 end

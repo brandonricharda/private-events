@@ -20,6 +20,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_attendance
+    user = User.find(params[:user])
+    event = Event.find(params[:event])
+    user.attended_events << event
+  end
+
   def show
     @user = User.find(params[:id])
   end

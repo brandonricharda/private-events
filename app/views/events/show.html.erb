@@ -18,3 +18,11 @@
     </td>
   <% end %>
 </p>
+
+<h2>Invite users to your event</h2>
+<% User.all.each do |user| %>
+  <%= next if user.name == session[:username] %>
+  <p>
+    <%= link_to user.name %>
+  </p>
+<% end %>

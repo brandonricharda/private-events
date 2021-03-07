@@ -7,8 +7,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <p id="notice"><%= notice %></p>
-
     <% if session[:username] %>
       <%= link_to "Sign Out", logout_path %>
     <% else %>
@@ -19,6 +17,8 @@
     <%= link_to "All Events", events_path %>
     <%= link_to "All Users", users_path %>
     <%= link_to "New Event", new_event_path %>
+
+    <p id="notice"><%= notice %></p>
 
   </head>
 

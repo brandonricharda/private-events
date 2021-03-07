@@ -19,10 +19,12 @@
   <% end %>
 </p>
 
-<h2>Invite users to your event</h2>
-<% User.all.each do |user| %>
-  <%= next if user.name == session[:username] %>
-  <p>
-    <%= link_to user.name %>
-  </p>
+<% if session[:username] = @event.creator.name %>
+  <h2>Invite users to your event</h2>
+  <% User.all.each do |user| %>
+    <%= next if user.name == session[:username] %>
+    <p>
+      <%= button_to user.name %>
+    </p>
+  <% end %>
 <% end %>

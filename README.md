@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my solution to the Private Events assignment in The Odin Project. The goal was to create an event planning application that allows users to:
 
-Things you may want to cover:
+- Create accounts
+- Create events
+- Invite users to those events (but only if they're the host)
 
-* Ruby version
+Learn more about the assignment here:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations
